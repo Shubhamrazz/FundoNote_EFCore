@@ -4,6 +4,7 @@ using RepositoryLayer.Interface;
 using RepositoryLayer.Service.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace RepositoryLayer.Service
@@ -30,6 +31,18 @@ namespace RepositoryLayer.Service
                 user.ModifiedDate = DateTime.Now;
                 fundoContext.Users.Add(user);
                 fundoContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<User> GetAllUsers()
+        {
+            try
+            {
+                return this.fundoContext.Users.ToList();
             }
             catch (Exception ex)
             {
