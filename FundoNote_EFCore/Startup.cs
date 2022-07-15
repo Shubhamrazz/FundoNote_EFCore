@@ -21,6 +21,8 @@ using System.Text;
 using System.Threading.Tasks;
 using RepositoryLayer.Service.Entities;
 using RepositoryLayer;
+using NLogger.Interface;
+using NLogger.Services;
 
 
 namespace FundoNote_EFCore
@@ -84,6 +86,7 @@ namespace FundoNote_EFCore
                });
             services.AddTransient<IUserRL, UserRL>();
             services.AddTransient<IUserBL, UserBL>();
+            services.AddSingleton<ILoggerManager, LoggerManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
