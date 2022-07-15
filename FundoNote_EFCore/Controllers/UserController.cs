@@ -24,10 +24,11 @@ namespace FundoNote_EFCore.Controllers
         private readonly ILoggerManager logger;
 
 
-        public UserController(FundoContext fundoContext, IUserBL userBL)
+        public UserController(FundoContext fundoContext, IUserBL userBL, ILoggerManager logger)
         {
             this.fundoContext = fundoContext;
             this.userBl = userBL;
+            this.logger = logger;
         }
 
         [HttpPost("AddUser")]
@@ -55,6 +56,27 @@ namespace FundoNote_EFCore.Controllers
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        [HttpPost("LoginUser")]
+        public IActionResult LoginUser(UserLoginModel userModel)
+        {
+            try
+            {
+                this.logger.LogInfo($"User cred Email : {userModel.Email}");
+                string token = this.userBl.LoginUser(userModel);
+                if (token == null)
+                {
+                    return this.BadRequest(new { success = false, message = "Enter Valid Email and Password" });
+                }
+
+                return this.Ok(new { success = true, message = "User Login Successfully", data = token });
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError($"User cred Failed : {userModel.Email}");
                 throw ex;
             }
         }
