@@ -194,5 +194,29 @@ namespace RepositoryLayer.Service
                 throw ex;
             }
         }
+
+        public bool ResetPassoword(string email, PasswordModel modelPassword)
+        {
+            try
+            {
+                var user = this.fundoContext.Users.Where(x => x.Email == email).FirstOrDefault();
+                if (user == null)
+                {
+                    return false;
+                }
+
+                if (modelPassword.Password == modelPassword.CPassword)
+                {
+                    user.Password = modelPassword.Password;
+                    this.fundoContext.SaveChanges();
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
