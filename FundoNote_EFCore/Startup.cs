@@ -23,7 +23,8 @@ using RepositoryLayer.Service.Entities;
 using RepositoryLayer;
 using NLogger.Interface;
 using NLogger.Services;
-
+using RepositoryLayer.Services;
+using BussinessLayer.Services;
 
 namespace FundoNote_EFCore
 {
@@ -84,9 +85,11 @@ namespace FundoNote_EFCore
                     { jwtSecurityScheme, Array.Empty<string>() },
                });
                });
+            services.AddSingleton<ILoggerManager, LoggerManager>();
             services.AddTransient<IUserRL, UserRL>();
             services.AddTransient<IUserBL, UserBL>();
-            services.AddSingleton<ILoggerManager, LoggerManager>();
+            services.AddTransient<INoteRL, NoteRL>();
+            services.AddTransient<INoteBL, NoteBL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

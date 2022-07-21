@@ -1,1 +1,10 @@
-﻿
+﻿2022-07-20 07:53:56.9509|INFO|NLogger.Services.LoggerManager|User cred Email : deepak
+2022-07-20 07:54:48.2700|INFO|NLogger.Services.LoggerManager|User cred Email : deepak@gmail.com
+2022-07-21 09:13:05.4588|INFO|NLogger.Services.LoggerManager|User cred Email : abhi@gmail.com
+2022-07-21 09:15:32.9981|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 5
+2022-07-21 16:39:09.3555|INFO|NLogger.Services.LoggerManager|User cred Email : shubham@gmail.com
+2022-07-21 16:51:33.2488|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 1
+2022-07-21 16:52:11.9780|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 1
+2022-07-21 16:53:52.6370|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 1
+2022-07-21 16:54:28.4794|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 1
+2022-07-21 16:56:02.9162|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 1
