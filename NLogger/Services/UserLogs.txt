@@ -8,3 +8,10 @@
 2022-07-21 16:53:52.6370|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 1
 2022-07-21 16:54:28.4794|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 1
 2022-07-21 16:56:02.9162|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 1
+2022-07-21 19:18:08.4053|INFO|NLogger.Services.LoggerManager|User cred Email : priyanka@gmail.com
+2022-07-21 19:18:38.8008|INFO|NLogger.Services.LoggerManager|No Notes Exists At Moment!! UserId = 4
+2022-07-21 19:24:10.6330|INFO|NLogger.Services.LoggerManager|No Notes Exists At Moment!! UserId = 4
+2022-07-21 19:25:22.5123|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 4
+2022-07-21 19:25:28.2394|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = 4
+2022-07-21 19:34:56.4844|INFO|NLogger.Services.LoggerManager|User cred Email : jadeja@gmail.com
+2022-07-21 19:36:06.0429|INFO|NLogger.Services.LoggerManager|No Notes Exists At Moment!! UserId = 6
