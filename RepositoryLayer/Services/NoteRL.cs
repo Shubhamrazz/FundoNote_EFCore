@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace RepositoryLayer.Services
 {
@@ -34,6 +35,34 @@ namespace RepositoryLayer.Services
                 note.ModifiedDate = DateTime.Now;
                 this.fundoContext.Notes.Add(note);
                 await this.fundoContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<NoteResponseModel>> GetAllNote(int UserId)
+        {
+            try
+            {
+                return await fundoContext.Users
+               .Where(u => u.UserId == UserId)
+               .Join(fundoContext.Notes,
+               u => u.UserId,
+               n => n.UserId,
+               (u, n) => new NoteResponseModel
+               {
+                   NoteId = n.NoteId,
+                   UserId = u.UserId,
+                   Title = n.Title,
+                   Description = n.Description,
+                   Bgcolor = n.Bgcolor,
+                   Firstname = u.Firstname,
+                   Lasttname = u.Lastname,
+                   Email = u.Email,
+                   CreatedDate = u.CreateDate,
+               }).ToListAsync();
             }
             catch (Exception ex)
             {
