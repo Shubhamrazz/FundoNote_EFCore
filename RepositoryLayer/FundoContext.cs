@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RepositoryLayer.Service.Entities;
+using RepositoryLayer.Services.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,5 +14,12 @@ namespace RepositoryLayer
 
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Note> Notes { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+             .HasIndex(u => u.Email)
+             .IsUnique();
+        }
     }
 }
