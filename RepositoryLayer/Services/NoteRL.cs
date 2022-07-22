@@ -69,5 +69,38 @@ namespace RepositoryLayer.Services
                 throw ex;
             }
         }
+
+        public Task<bool> UpdateNote(int userId, int noteId, NoteUpdateModel updateModel)
+        {
+
+            var flag = true;
+
+            try
+            {
+                var result = this.fundoContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
+
+                if (result == null || result.IsTrash == true)
+                {
+                    flag = false;
+                    return Task.FromResult(flag);
+                }
+
+                result.Title = updateModel.Title;
+                result.Description = updateModel.Description;
+                result.Bgcolor = updateModel.Bgcolor;
+                result.IsPin = updateModel.IsPin;
+                result.IsArchive = updateModel.IsArchive;
+                result.IsTrash = updateModel.IsTrash;
+                result.ModifiedDate = DateTime.Now;
+                this.fundoContext.Notes.Update(result);
+                this.fundoContext.SaveChanges();
+                return Task.FromResult(flag);
+
+            }
+            catch (Exception ex)
+            {
+              throw ex;
+            }
+        }
     }
 }

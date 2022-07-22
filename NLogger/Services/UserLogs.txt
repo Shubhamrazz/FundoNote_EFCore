@@ -15,3 +15,13 @@
 2022-07-21 19:25:28.2394|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = 4
 2022-07-21 19:34:56.4844|INFO|NLogger.Services.LoggerManager|User cred Email : jadeja@gmail.com
 2022-07-21 19:36:06.0429|INFO|NLogger.Services.LoggerManager|No Notes Exists At Moment!! UserId = 6
+2022-07-21 20:48:59.6715|INFO|NLogger.Services.LoggerManager|No Notes Exists At Moment!! UserId = 6
+2022-07-21 20:55:54.8091|INFO|NLogger.Services.LoggerManager|User cred Email : shabnam@gmail.com
+2022-07-21 22:19:01.4376|INFO|NLogger.Services.LoggerManager|User cred Email : priyanka@gmail.com
+2022-07-22 05:20:11.2472|INFO|NLogger.Services.LoggerManager|User cred Email : raghav@gmail.com
+2022-07-22 05:33:01.1537|INFO|NLogger.Services.LoggerManager|User cred Email : akansha@gmail.com
+2022-07-22 05:39:08.0853|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 5
+2022-07-22 05:39:25.0190|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 5
+2022-07-22 05:39:57.6735|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 5
+2022-07-22 05:41:07.1734|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 5
+2022-07-22 05:41:42.1388|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = 5

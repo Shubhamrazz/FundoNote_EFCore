@@ -75,5 +75,38 @@ namespace FundoNote_EFCore.Controllers
                 throw ex;
             }
         }
+
+        [HttpPut("UpdateNote")]
+        public async Task<IActionResult> UpdateNote(int NoteId, NoteUpdateModel updateModel)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                var check = this.fundocontext.Notes.Where(x => x.NoteId == NoteId).FirstOrDefault();
+                if (check == null || check.IsTrash == true)
+                {
+                    return this.BadRequest(new { sucess = false, Message = $"No Note Found for NodeId : {NoteId}" });
+                }
+
+                if ((updateModel.Title == string.Empty) || (updateModel.Title == "string" && updateModel.Description == "string" && updateModel.Bgcolor == "string") && (updateModel.IsTrash == true))
+                {
+                    return this.BadRequest(new { sucess = false, Message = "Enter Valid Data" });
+                }
+
+                bool result = await this.noteBL.UpdateNote(UserId, NoteId, updateModel);
+                if (result == true)
+                {
+                    return this.Ok(new { sucess = true, Message = "Note Updated Success Fully!!" });
+                }
+
+                return this.BadRequest(new { sucess = false, Message = $"No Note Found for NodeId : {NoteId}" });
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
