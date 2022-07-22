@@ -4,3 +4,4 @@ use FundoNote_EFCore
  
  select * from Users
  select * from Notes
+ select * from Labels
