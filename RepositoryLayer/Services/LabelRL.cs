@@ -121,6 +121,25 @@ namespace RepositoryLayer.Services
                 throw ex;
             }
         }
+        public async Task<bool> DeleteLabel(int UserId, int LabelId)
+        {
+            try
+            {
+                var label = this.fundooContext.Labels.FirstOrDefault(x => x.LabelId == LabelId && x.UserId == UserId);
+                if (label != null)
+                {
+                    this.fundooContext.Remove(label);
+                    this.fundooContext.SaveChanges();
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }

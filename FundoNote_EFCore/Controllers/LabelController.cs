@@ -125,6 +125,27 @@ namespace FundoNote_EFCore.Controllers
                 throw ex;
             }
         }
+        [HttpDelete("DeleteLabel/{LabelId}")]
+        public async Task<IActionResult> DeleteLabel(int LabelId)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                bool result = await this.labelBL.DeleteLabel(UserId, LabelId);
+                if (result)
+                {
+                    return this.Ok(new { sucess = true, Message = "Deleted SuccessFully !! " });
+                }
+
+                return this.BadRequest(new { sucess = false, Message = "Enter Valid Label Id !!" });
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex.Message);
+                throw ex;
+            }
+        }
 
     }
 }
