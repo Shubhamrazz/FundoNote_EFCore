@@ -39,5 +39,36 @@ namespace RepositoryLayer.Services
                 throw ex;
             }
         }
+
+        public async Task<List<LabelModel>> GetAllLabels(int UserId)
+        {
+            try
+            {
+                var label = this.fundooContext.Labels.FirstOrDefault(x => x.UserId == UserId);
+                var result = await (from user in fundooContext.Users
+                                    join notes in fundooContext.Notes on user.UserId equals UserId
+                                    join labels in fundooContext.Labels on notes.NoteId equals labels.NoteId
+                                    where labels.UserId == UserId
+                                    select new LabelModel
+                                    {
+                                        LabelId = labels.LabelId,
+                                        UserId = UserId,
+                                        NoteId = notes.NoteId,
+                                        Title = notes.Title,
+                                        FirstName = user.Firstname,
+                                        LastName = user.Lastname,
+                                        Email = user.Email,
+                                        Description = notes.Description,
+                                        LabelName = labels.LabelName,
+                                    }).ToListAsync();
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
