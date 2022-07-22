@@ -102,5 +102,29 @@ namespace RepositoryLayer.Services
               throw ex;
             }
         }
+
+        public async Task<bool> DeleteNote(int userId, int noteId)
+        {
+            var flag = false;
+            try
+            {
+                var result = this.fundoContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
+                if (result != null)
+                {
+                    flag = true;
+                    result.IsTrash = true;
+                    this.fundoContext.Notes.Update(result);
+                    await this.fundoContext.SaveChangesAsync();
+                    return await Task.FromResult(flag);
+                }
+
+                return await Task.FromResult(flag);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
