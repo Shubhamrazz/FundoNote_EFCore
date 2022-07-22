@@ -97,5 +97,34 @@ namespace FundoNote_EFCore.Controllers
                 throw ex;
             }
         }
+
+        [HttpPut("UpdateLabel/{LabelId}/{Labelname}")]
+        public async Task<IActionResult> UpdatedLabel(int LabelId, string Labelname)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("UserId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = int.Parse(userId.Value);
+                var label = this.fundooContext.Labels.FirstOrDefault(x => x.LabelId == LabelId && x.UserId == UserId);
+                if (label == null)
+                {
+                    return this.BadRequest(new { sucess = false, Message = "Enter valid NoteId" });
+                }
+
+                bool result = await this.labelBL.UpdateLable(UserId, LabelId, Labelname);
+                if (result)
+                {
+                    return this.Ok(new { sucess = true, Message = "Updated Label Successfully! " });
+                }
+
+                return this.BadRequest(new { sucess = false, Message = "Entered Label Name already exsists!!" });
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex.Message);
+                throw ex;
+            }
+        }
+
     }
 }
