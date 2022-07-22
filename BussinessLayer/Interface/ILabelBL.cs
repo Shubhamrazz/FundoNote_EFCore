@@ -10,5 +10,6 @@ namespace BussinessLayer.Interface
     {
         Task AddLabel(int UserId, int NoteId, string LabelName);
         Task<List<LabelModel>> GetAllLabels(int UserId);
+        Task<List<LabelModel>> GetLabelByNoteId(int UserId, int NoteId);
     }
 }
