@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RepositoryLayer.Service.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,11 +18,7 @@ namespace RepositoryLayer.Services.Entities
         public string Description { get; set; }
 
         public string Bgcolor { get; set; }
-
-        [Required]
-        [ForeignKey("User")]
-        public int UserId { get; set; }
-
+        
         public bool IsPin { get; set; }
 
         public bool IsArchive { get; set; }
@@ -35,5 +32,11 @@ namespace RepositoryLayer.Services.Entities
         public DateTime Remainder { get; set; }
 
         public DateTime ModifiedDate { get; set; }
+
+        [Required]
+        [ForeignKey("User")]
+        public virtual int UserId { get; set; }
+
+        public virtual User user { get; set; }
     }
 } 

@@ -26,3 +26,5 @@
 2022-07-22 05:41:07.1734|INFO|NLogger.Services.LoggerManager|Note Created Successfully UserId=UserId: 5
 2022-07-22 05:41:42.1388|INFO|NLogger.Services.LoggerManager|All Notes Retrieved Successfully UserId = 5
 2022-07-22 15:09:59.7627|INFO|NLogger.Services.LoggerManager|User cred Email : shubham@gmail.com
+2022-07-22 16:32:11.6613|ERROR|NLogger.Services.LoggerManager|Object reference not set to an instance of an object.
+2022-07-22 16:49:08.5621|ERROR|NLogger.Services.LoggerManager|Object reference not set to an instance of an object.
