@@ -35,3 +35,4 @@
 2022-07-22 18:57:55.1709|INFO|NLogger.Services.LoggerManager|Enterd invalid Note Id 3
 2022-07-22 18:58:08.3330|INFO|NLogger.Services.LoggerManager|Label Cread Successfully with noted id = 4
 2022-07-22 21:08:43.0047|INFO|NLogger.Services.LoggerManager|User cred Email : shubham@gmail.com
+2022-07-23 11:27:55.7006|INFO|NLogger.Services.LoggerManager|User cred Email : shubham@gmail.com

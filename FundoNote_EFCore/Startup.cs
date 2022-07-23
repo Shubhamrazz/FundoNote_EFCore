@@ -41,6 +41,7 @@ namespace FundoNote_EFCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddMemoryCache();
             services.AddDbContext<FundoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Fundoonotes")));
 
             services.AddAuthentication(x =>
@@ -92,6 +93,12 @@ namespace FundoNote_EFCore
             services.AddTransient<INoteBL, NoteBL>();
             services.AddTransient<ILabelRL, LabelRL>();
             services.AddTransient<ILabelBL, LabelBL>();
+            services.AddDistributedRedisCache(
+               options =>
+               {
+                   options.Configuration = "Localhost:6379";
+               }
+               );
 
         }
 
